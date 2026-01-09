@@ -1,0 +1,36 @@
+class Solution {
+    String []phone={
+            "","",
+            "abc",
+            "def",
+            "ghi",
+            "jkl",
+            "mno",
+            "pqrs",
+            "tuv",
+            "wxyz"
+        };
+    List <String> res=new ArrayList<>();
+    public List<String> letterCombinations(String digits) {
+        if(digits.length()==0){
+        return res;
+        }
+        solve(0,digits,"");
+        return res;
+    }
+        
+        
+       
+     
+    void solve(int index,String digits,String current){
+            if(index==digits.length()){
+                res.add(current);
+                return;
+            }
+            String letters=phone[digits.charAt(index)-'0'];
+            for(int i=0;i<letters.length();i++)
+                solve(index+1,digits,current+letters.charAt(i));
+        }
+        
+
+    }
