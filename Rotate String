@@ -1,0 +1,18 @@
+class Solution {
+    public boolean rotateString(String s, String goal) {
+    // //BRUTE FORCE
+    //     int n;
+    //     for(int i=0;i<s.length();i++){
+    //         String str= s.substring(i)+s.substring(0,i);
+    //         if(str.equals(goal))
+    //            return true;
+    //     }
+    //     return false;
+
+    
+    //M2
+    return s.length()==goal.length() && (s+s).contains(goal);
+          
+          
+    }
+}
