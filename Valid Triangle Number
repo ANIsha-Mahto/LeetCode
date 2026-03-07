@@ -1,0 +1,21 @@
+class Solution {
+    public int triangleNumber(int[] nums) {
+        Arrays.sort(nums);
+        int n=nums.length;
+        int count=0;
+        for(int i=n-1;i>=2;i--){
+            int x=0;
+            int y=i-1;
+            while(x<y){
+                if(nums[x]+nums[y]>nums[i]){
+                    count+=(y-x);
+                    y--;
+                }else{
+                    x++;
+                }
+            }
+
+        }
+        return count;
+    }
+}
