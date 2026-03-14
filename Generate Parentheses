@@ -1,0 +1,23 @@
+class Solution {
+    public List<String> generateParenthesis(int n) {
+        List<String>ans=new ArrayList<>();
+        char []c=new char[2*n];
+        gp(c,n,0,0,0,ans);
+        return ans;
+    }
+    public void gp(char []c,int n,int open,int close,int idx,List<String>ans){
+        if(idx==2*n){
+            ans.add(new String (c));
+            return;
+        }
+        if(open<n){
+            c[idx]='(';
+            gp(c,n,open+1,close,idx+1,ans);
+        }
+        if(close<open){
+            c[idx]=')';
+            gp(c,n,open,close+1,idx+1,ans);
+
+        }
+    }
+}
