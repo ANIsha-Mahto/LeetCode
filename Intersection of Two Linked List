@@ -1,0 +1,83 @@
+/**
+ * Definition for singly-linked list.
+ * public class ListNode {
+ *     int val;
+ *     ListNode next;
+ *     ListNode(int x) {
+ *         val = x;
+ *         next = null;
+ *     }
+ * }
+ */
+public class Solution {
+    public ListNode getIntersectionNode(ListNode headA, ListNode headB) {
+        //TWO POINTERS
+        ListNode p1=headA;
+        ListNode p2=headB;
+        while(p1!=p2){
+            if(p1==null){
+                p1=headA;
+            }else{
+                p1=p1.next;
+            }
+            if(p2==null){
+                p2=headB;
+            }else{
+                p2=p2.next;
+            }
+        }
+        return p1;
+
+
+        //STACK
+        // Stack<ListNode>s1=new Stack<>();
+        // Stack<ListNode>s2=new Stack<>();
+        // while(headA!=null){
+        //     s1.push(headA);
+        //     headA=headA.next;
+
+        // }
+        // while(headB!=null){
+        //     s2.push(headB);
+        //     headB=headB.next;
+        // }
+        // ListNode prev=null;
+
+        // while(!s1.isEmpty() && !s2.isEmpty() && s1.peek()==s2.peek()){
+        //     prev=s1.peek();
+        //     s1.pop();
+        //     s2.pop();
+        // }
+        // return prev;
+
+
+        //HASHSET
+        // HashSet<ListNode>set=new HashSet<>();
+        // ListNode curr=headA;
+        // while(curr!=null){
+        //     set.add(curr);
+        //     curr=curr.next;
+        // }
+        // curr=headB;
+        // while(curr!=null){
+        //     if(set.contains(curr)){
+        //         return curr;
+        //     }
+        //     curr=curr.next;
+        // }
+        // return null;
+
+
+        //BRUTE FORCE
+        // for(ListNode a=headA;a!=null;a=a.next){
+        //     for(ListNode b=headB;b!=null;b=b.next){
+        //         if(a==b)
+        //            return a;
+        //     }
+        // }
+        // return null;
+
+        
+        
+    }
+}
