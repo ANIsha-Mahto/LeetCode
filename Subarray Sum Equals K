@@ -1,0 +1,55 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int n=nums.length;
+        //OPTIMIZED
+        HashMap<Integer,Integer>map=new HashMap<>();
+        map.put(0,1);
+        int sum=0;
+        int cnt=0;
+        for(int num:nums){
+            sum+=num;
+            if(map.containsKey(sum-k)){
+                cnt+=map.get(sum-k);
+            }
+            map.put(sum,map.getOrDefault(sum,0)+1);
+        }
+        return cnt;
+
+
+
+        // int []prefix=new int[n];
+        // prefix[0]=nums[0];
+        // for(int i=1;i<n;i++){
+        //     prefix[i]=prefix[i-1]+nums[i];
+        // }
+        // int cnt=0;
+        // for(int i=0;i<n;i++){
+        //     for(int j=i;j<n;j++){
+        //         int sum;
+        //         if(i==0){
+        //             sum=prefix[j];
+        //         }else{
+        //             sum=prefix[j]-prefix[i-1];
+        //         }
+        //         if(sum==k){
+        //             cnt++;
+        //         }
+        //     }
+        // }
+        // return cnt;
+
+
+
+        //BRUTE FORCE
+        // int count=0;
+        // for(int i=0;i<n;i++){
+        //     int sum=0;
+        //     for(int j=i;j<n;j++){
+        //         sum+=nums[j];
+        //         if(sum==k)
+        //         count++;
+        //     }
+        // }
+        // return count;
+    }
+}
