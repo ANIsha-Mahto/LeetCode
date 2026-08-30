@@ -1,0 +1,20 @@
+public class Solution {
+    public int MaxArea(int[] height) {
+        int maxarea=0;
+        int p1=0;
+        int p2=height.Length-1;
+        while(p1<p2){
+            int ht=Math.Min(height[p1],height[p2]);
+            int width=p2-p1;
+            int area=ht*width;
+            maxarea=Math.Max(area,maxarea);
+            if(height[p1]<height[p2]){
+                p1++;
+            }else{
+                p2--;
+            }
+        }
+        return maxarea;
+        
+    }
+}
